@@ -6,7 +6,7 @@ TF_FILE="files.tf"
 cat > $TF_FILE ''
 
 COUNT=0
-find $SRC -iname '*.*' | while read path; do
+find -L $SRC -type f -o -type l -iname '*.*' | while read path; do
 
     cat >> $TF_FILE << EOM
 
